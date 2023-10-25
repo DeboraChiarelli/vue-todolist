@@ -12,10 +12,10 @@
         <h1>TO DO</h1>
         <div id="container">
             <div>
-                <input type="text" @keyup.enter="AddTask"  placeholder="Add task" v-model ="newTask">
-                <button @click="AddTask" type="button">Add</button>
+                <input type="text" @keyup.enter="addTask"  placeholder="Add task" v-model ="newTask">
+                <button @click="addTask" type="button">Add</button>
                  <div class="error"  v-if="error">
-                    Devi inserire una task di almeno 3 caratteri
+                    Inserisci una task di almeno 5 caratteri
                 </div>
                 <ul>
                     <li 

@@ -47,7 +47,7 @@ createApp({
           this.toDo.splice(index, 1);
         },
 //- successivamente dichiaro la funzione che mi servirà per inserire il nuovo item
-        AddTask(){
+        addTask(){
             if (this.newTask !== "" && this.newTask.length >= 5) {
                 const newItem = { //- daggiungere una costante riassegnando un nuovo valore alla proprietà del mio oggetto 
                     text : this.newTask,
