@@ -1,0 +1,33 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+ul li {
+    list-style: none;
+    padding: 2px;
+}
+
+h1 {
+    text-align: center;
+    padding: 10px;
+}
+
+#container {
+    width: 500px;
+    min-height: 200px;
+    padding: 10px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+ul {
+    text-align: center;
+}
+
+.fa-solid {
+    padding: 5px;
+}
