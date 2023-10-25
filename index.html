@@ -9,23 +9,26 @@
 </head>
 <body>
     <div id="app">
-        <h1>ToDo</h1>
+        <h1>TO DO</h1>
         <div id="container">
             <div>
-                <input type="text">
-                <button @click="addTask" type="button">Add</button>
-                 <div>
-                    Devi inserire una task di almeno 5 caratteri
+                <input type="text" @keyup.enter="AddTask"  placeholder="Add task" v-model ="newTask">
+                <button @click="AddTask" type="button">Add</button>
+                 <div class="error"  v-if="error">
+                    Devi inserire una task di almeno 3 caratteri
                 </div>
                 <ul>
+                    <li 
+                        v-for = "(listItem, index) in toDo" @click.stop = "checkUncheck(index)" :class="listItem.done === true ? 'done' : ''" >{{listItem.text}}
+                        <i @click.stop = "removeTask(index)" class="fa-solid fa-trash"></i>
                     <li>
-                        <i class="fa-solid fa-circle-xmark"></i>
-                    </li>
                 </ul>
-                <h2>Non ci sono tasks</h2>
+                <h2 class="error" v-if="toDo.length === 0">Non ci sono tasks</h2>
             </div>
         </div>
     </div>
+
+
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <script src="./js/app.js"></script>
 </body>

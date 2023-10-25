@@ -31,3 +31,11 @@ ul {
 .fa-solid {
     padding: 5px;
 }
+
+.error {
+    color: red;   
+}
+
+.done {
+    text-decoration: line-through;
+}

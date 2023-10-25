@@ -13,38 +13,63 @@ viene letto e utilizzato per creare un nuovo todo, che quindi viene aggiunto all
 
 const { createApp } = Vue;
 createApp({
-    data() {
-        return {
+    data(){
+         return{
             activelement: 0,
             newTask: "",
             error: false,
             toDo: [
-                {
-                    text: 'portare il cane fuori',
-                    done: true,
-                },
-                {
-                    text: 'fare i compiti',
-                    done: true,
-                },
-                {
-                    text: 'fare la spesa',
-                    done: false,
-                },
-                {
-                    text: 'chiamare mamma',
-                    done: true,
-                },
-                {
-                    text: 'prenotare viaggio',
-                    done: false,
-                }
-            ]
-        }
+                    {
+                        text: "chiamare il veterinario",
+                        done: true,
+                    },
+                    {
+                        text: "portare fuori Lilly",
+                        done: true,
+                    }, 
+                    {
+                        text: "chiamare mamma",
+                        done: true,
+                    }, 
+                    {
+                        text: "fare la spesa",
+                        done: false,
+                    }, 
+                    {   text: "prenotare viaggio",
+                        done: false,
+                    }
+                ]
+         }
     },
-//- Per prima cosa, devo aggiungere il click al bottone nell'html
+//- come prima cosa aggiungo il click al bottone nell'html
     methods : {
+        removeTask(index){
+          this.toDo.splice(index, 1);
+        },
+//- successivamente dichiaro la funzione che mi servirà per inserire il nuovo item
+        AddTask(){
+            if (this.newTask !== "" && this.newTask.length >= 5) {
+                const newItem = { //- daggiungere una costante riassegnando un nuovo valore alla proprietà del mio oggetto 
+                    text : this.newTask,
+                    done : false
+                }
+                this.toDo.unshift(newItem);
+                this.newTask = "";
+                this.error = false;
+            }
+            else{
+                this.error = true;
+            }
+        },
 
-    }
+         checkUncheck(checkIndex){
+            if (this.toDo[checkIndex].done === false) {
+                this.toDo[checkIndex].done = true;
+            }
+            else{
+                this.toDo[checkIndex].done = false;
+            }
+         }
+    },
 
-})
+}).mount("#app")
