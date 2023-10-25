@@ -12,9 +12,12 @@ Predisporre un campo di input testuale e un pulsante "aggiungi": cliccando sul p
 viene letto e utilizzato per creare un nuovo todo, che quindi viene aggiunto alla lista dei todo esistenti.*/
 
 const { createApp } = Vue;
-createApp ({
-    data (){
+createApp({
+    data() {
         return {
+            activelement: 0,
+            newTask: "",
+            error: false,
             toDo: [
                 {
                     text: 'portare il cane fuori',
@@ -39,6 +42,9 @@ createApp ({
             ]
         }
     },
+//- Per prima cosa, devo aggiungere il click al bottone nell'html
+    methods : {
 
+    }
 
 })
